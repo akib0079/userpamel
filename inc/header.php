@@ -1,7 +1,7 @@
 <?php include'db.php' ?>
 
 <!doctype html>
-<html data-theme="lofi" lang="en">
+<html data-theme="emerald" lang="en">
 
 <head>
   <title>Users Panel</title>
