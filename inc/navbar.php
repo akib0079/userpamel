@@ -7,7 +7,7 @@
   <div class="flex-none">
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
+        <div class="w-10 rounded-full border-4 border-danger">
           <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
         </div>
       </label>
