@@ -38,7 +38,7 @@
               $allData = mysqli_query($db , $sql);
 
               $sl = 0;
-              
+              // Fetching all data from the database!
               while($row = mysqli_fetch_assoc($allData)){
                 $id = $row['id'];
                 $name = $row['name'];
@@ -52,7 +52,6 @@
               ?>
 
                 <tr class="hover">
-                
                   <th><?php echo $sl ?></th>
                   <td><?php echo $name ?></td>
                   <td><?php echo $fatherName?></td>
@@ -67,20 +66,22 @@
                         <box-icon name='edit-alt' type='solid' color='#333' ></box-icon>
                       </a>
 
-                      <label for="my-modal-3">
-                        <box-icon class="cursor-pointer" for="my-modal-3" name='trash' color='#FF0000'></box-icon>
+                      <label for="del<?php echo $id; ?>">
+                        <box-icon class="cursor-pointer" name='trash' color='#FF0000'></box-icon>
                       </label>
                       
                       
                       <!-- Delete modal -->
-                      <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+                      <input type="checkbox" id="del<?php echo $id; ?>" class="modal-toggle" />
                       <div class="modal">
                         <div class="modal-box relative flex items-center justify-center flex-col">
-                          <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgba(207, 52, 21, 1);transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M11 11h2v6h-2zm0-4h2v2h-2z"></path></svg>
+                          <label for="del<?php echo $id; ?>" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgba(207, 52, 21, 1)"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M11 11h2v6h-2zm0-4h2v2h-2z"></path></svg>
                           <h3 class="text-lg font-bold text-center mt-3">Do you want to delete this user?</h3>
                           <div class="flex items-center justify-center gap-1 mt-3">
-                            <label for="my-modal-5 text-center" class="btn btn-accent">Delete</label>
+                            <label  for="del<?php echo $id; ?> text-center" class="btn btn-accent">
+                              <a  href="index.php?deleteUser=<?php echo $id; ?>">Delete</a>
+                            </label>
                           </div>
                         </div>
                       </div>
@@ -94,6 +95,23 @@
             ?>
             
           </tbody>
+          
+          <!-- Delte the user here -->
+          <?php 
+            if(isset($_GET['deleteUser'])){
+              $delId =  $_GET['deleteUser'];
+              $SQL = "DELETE FROM users WHERE id = $delId";
+
+              $deleteProcess = mysqli_query($db, $SQL);
+
+              if($deleteProcess){
+                header("Location: index.php");
+              }
+              else{
+                die("Mysqli Error!" . mysqli_error($db));
+              }
+            }
+          ?>
 
           
         </table>
