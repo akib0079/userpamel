@@ -55,7 +55,7 @@
                 
                   <th><?php echo $sl ?></th>
                   <td><?php echo $name ?></td>
-                  <td><?php echo  $fatherName?></td>
+                  <td><?php echo $fatherName?></td>
                   <td><?php echo $MotherName?></td>
                   <td><?php echo $email?></td>
                   <td><?php echo $phone?></td>
@@ -63,8 +63,24 @@
                   <td><?php echo $joinDate?></td>
                   <td> 
                     <div class="action flex items-center justify-center gap-1">
-                      <box-icon name='edit-alt' type='solid' color='#333' ></box-icon>
-                      <box-icon name='trash' color='#FF0000'></box-icon>
+                      <a href="update.php?id=<?php echo $id ?>">
+                        <box-icon name='edit-alt' type='solid' color='#333' ></box-icon>
+                      </a>
+
+                      <label for="my-modal-3">
+                        <box-icon class="cursor-pointer" for="my-modal-3" name='trash' color='#FF0000'></box-icon>
+                      </label>
+                      
+                      
+                      <!-- Delete modal -->
+                      <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+                      <div class="modal">
+                        <div class="modal-box relative">
+                          <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                          <h3 class="text-lg font-bold">Do you want to delete this user?</h3>
+                          
+                        </div>
+                      </div>
                      </div>
                   </td>
                 

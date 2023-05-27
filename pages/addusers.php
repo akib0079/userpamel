@@ -48,7 +48,7 @@
               </label>
               <textarea type="textarea" required name="address" placeholder="Type address" class="textarea textarea-bordered h-24 w-full"></textarea>
             </div>
-            <input class="btn btn-secondary mt-3" name="dataSubmit" type="submit" value="Create user">
+            <input class="btn btn-sm btn-secondary mt-3 " name="dataSubmit" type="submit" value="Create user">
         </div>
       </form>
     </div>
