@@ -13,11 +13,11 @@
       </button></a>
     </div>
 
-    <div class="userTable">
+    <div class="userTable mt-3">
       <div class="overflow-x-auto">
-        <table class="table w-full">
+        <table  id="userTable" class="table w-full ">
           <!-- head -->
-          <thead>
+          <thead class="mt-2">
             <tr>
               <th>Sl</th>
               <th>Name</th>

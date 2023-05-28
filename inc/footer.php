@@ -16,11 +16,20 @@
     
     <!-- Boxicon library -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            $('#userTable').DataTable();
+        });
+    </script>
     </footer>
-
+    
+    <?php ob_end_flush(); ?>
 </body>
 
-<?php ob_end_flush(); ?>
+
 
 </html>
